@@ -1,4 +1,4 @@
-package com.news.stackusers.ui.theme
+package com.news.stackusers.common.ui.compose.theme
 
 import androidx.compose.ui.graphics.Color
 

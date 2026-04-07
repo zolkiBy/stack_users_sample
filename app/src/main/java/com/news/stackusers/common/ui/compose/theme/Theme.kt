@@ -1,6 +1,5 @@
-package com.news.stackusers.ui.theme
+package com.news.stackusers.common.ui.compose.theme
 
-import android.app.Activity
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material3.MaterialTheme
