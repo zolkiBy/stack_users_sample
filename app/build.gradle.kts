@@ -59,9 +59,14 @@ dependencies {
     implementation(libs.retrofit.converter)
     implementation(libs.kotlinx.serialization)
 
-    //DI
+    // DI
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
+
+    // Persistent storage
+    implementation(libs.room)
+    implementation(libs.room.ktx)
+    ksp(libs.room.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
