@@ -1,5 +1,6 @@
 package com.news.stackusers.feature.users.data
 
+import com.news.stackusers.common.DEBUG_TAG
 import com.news.stackusers.common.di.IoDispatcher
 import com.news.stackusers.feature.users.data.model.User
 import com.news.stackusers.feature.users.data.model.dto.FollowingEntity
@@ -9,6 +10,7 @@ import com.news.stackusers.feature.users.data.persistent.FollowingsDao
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -20,6 +22,9 @@ class UsersRepositoryImpl @Inject constructor(
 ) : UsersRepository {
 
     override suspend fun getUsers(): List<User> {
+        Timber.tag(DEBUG_TAG).d("getUsers called")
+        // uncomment this line to see Error Screen
+        //throw RuntimeException()
         return withContext(coroutineDispatcher) {
             val response = api.getUsers()
             if (response.isSuccess()) {

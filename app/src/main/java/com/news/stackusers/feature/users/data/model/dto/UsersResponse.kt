@@ -1,16 +1,11 @@
 package com.news.stackusers.feature.users.data.model.dto
 
 import com.news.stackusers.common.net.BaseResponse
-import com.news.stackusers.feature.users.data.model.User
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-class UsersResponse(val items: List<UserDto>) : BaseResponse() {
-
-    fun toUsers(): List<User>
-
-}
+class UsersResponse(val items: List<UserDto>) : BaseResponse()
 
 @Serializable
 class UserDto(

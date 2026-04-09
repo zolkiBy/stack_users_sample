@@ -3,6 +3,7 @@ package com.news.stackusers.feature.users.data.persistent
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
+import androidx.room.MapColumn
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.news.stackusers.feature.users.data.model.dto.FollowingEntity
@@ -12,7 +13,7 @@ import kotlinx.coroutines.flow.Flow
 interface FollowingsDao {
 
     @Query("SELECT userId, name FROM followings")
-    fun getFollowings(): Flow<Map<Int, String>>
+    fun getFollowings(): Flow<Map<@MapColumn(columnName = "userId") Int, @MapColumn(columnName = "name") String>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertFollowing(following: FollowingEntity)

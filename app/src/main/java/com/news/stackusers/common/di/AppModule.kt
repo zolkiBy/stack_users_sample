@@ -3,6 +3,8 @@ package com.news.stackusers.common.di
 import android.content.Context
 import androidx.room.Room
 import com.jakewharton.retrofit2.converter.kotlinx.serialization.asConverterFactory
+import com.news.stackusers.feature.users.data.UsersRepository
+import com.news.stackusers.feature.users.data.UsersRepositoryImpl
 import com.news.stackusers.feature.users.data.net.UserApi
 import com.news.stackusers.feature.users.data.persistent.AppDataBase
 import com.news.stackusers.feature.users.data.persistent.FollowingsDao
@@ -55,6 +57,16 @@ object AppModule {
     @Provides
     @Singleton
     fun provideUserApi(retrofit: Retrofit): UserApi = retrofit.create(UserApi::class.java)
+
+    @Provides
+    @Singleton
+    fun provideUsersRepository(
+        userApi: UserApi,
+        followingsDao: FollowingsDao,
+        @IoDispatcher coroutineDispatcher: CoroutineDispatcher
+    ): UsersRepository {
+        return UsersRepositoryImpl(userApi, followingsDao, coroutineDispatcher)
+    }
 
     @Provides
     @Singleton
