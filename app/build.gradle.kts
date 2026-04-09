@@ -78,7 +78,8 @@ dependencies {
     implementation(libs.logger)
 
     testImplementation(libs.junit)
-    implementation(libs.coroutines.test)
+    testImplementation(libs.coroutines.test)
+    testImplementation(libs.mock.android)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
